@@ -1,42 +1,46 @@
+import java.util.Scanner;
 
-public class ContaCorrente extends SistemaBancario {
+class ContaCorrente extends SistemaBancario {
+	Scanner sc = new Scanner(System.in);
 
-	public void sacar(double saque) {
-		if(saque>this.getLimite()) {
-			System.out.println("Não é possível sacar um valor maior do que o permitido pelo limite.");
+	private int n;
+	private double valor;
+
+	public void contaCorrenteFuncoes() {
+		System.out.println("\nO que deseja?\n" 
+						+ "[1]Sacar;\n" 
+						+ "[2]Depositar;\n" 
+						+ "[3]Ver saldo.");
+		n = sc.nextInt();
+
+		switch (n){
+		
+		
+		case 1:
+			System.out.println("Saldo atual: R$" + this.getSaldo());
 			
-		}else {
-			if(saque<=this.getSaldo() && saque>0) {
-				this.setSaldo(this.getSaldo()-saque);
-				System.out.println("Saldo: R$"+this.getSaldo());
-				
-			}else {
-				System.out.println("Você não pode sacar um valor acima do seu saldo");
-			}
+			System.out.print("Valor a ser sacado: R$");
+			valor=sc.nextDouble();
+			this.sacar(valor);
+			break;
 			
+		case 2:
+			System.out.println("Saldo atual: R$" + this.getSaldo());
+			
+			System.out.print("Valor a ser depositado: R$");
+			valor=sc.nextDouble();
+			this.depositar(valor);
+			break;
+			
+		case 3:
+			System.out.println("Saldo atual: R$" + this.getSaldo());
+			break;
+			
+		default:
+			System.out.println("opção inválida");
+			break;	
 		}
-	}
-	
-	public void depositar(double deposito) {
-		this.setSaldo(this.getSaldo()+deposito);
-		System.out.println("Saldo: R$"+this.getSaldo());
+
 	}
 
-	public void emprestar(double numero) {
-		int n=5;
-		if(n==0) {
-			System.out.println("Já passou seu limite de empréstimos");
-		}else {
-			if(numero>500) {
-				System.out.println("Valor acima do empréstimo acima do permitido");;
-				
-			}else {
-				n--;
-				System.out.println("Empréstimo de R$"+numero+" realizada com sucesso!");				
-			}
-			
-		}	
-	}
-
-	
 }
