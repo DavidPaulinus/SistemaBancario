@@ -40,9 +40,10 @@ class ContaSalaraio extends SistemaBancario {
 			break;
 			
 		case 4:
+			int n=0;
 			System.out.print("Quanto deseja pegar emprestado? R$");
 			valor=sc.nextDouble();
-			emprestar(valor);
+			emprestar(valor, n);
 			
 			break;
 			

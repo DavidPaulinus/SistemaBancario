@@ -64,11 +64,9 @@ public class UsandoSistema {
 				
 			}else {
 				System.out.println("Nome e/ou número errado");
+				
 			}
 			
-		}
-		else {
-			System.out.println("Opção inválida");
 		}
 		
 		

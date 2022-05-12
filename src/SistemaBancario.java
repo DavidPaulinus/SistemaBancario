@@ -94,17 +94,18 @@ abstract class SistemaBancario {
 		System.out.println("Saldo: R$" + this.getSaldo() + "\n");
 	}
 
-	public void emprestar(double numero) {
-		int n = 0;
+	public void emprestar(double numero, int n) {
 		if (n == 0) {
 			System.out.println("Já passou seu limite de empréstimos");
-		}
-		if (numero > 500) {
-			System.out.println("Valor acima do empréstimo acima do permitido");
-
-		} else {
-			System.out.println("Empréstimo de R$" + numero + " realizado com sucesso!");
-			n--;
+		}else {
+			if (numero > 500) {
+				System.out.println("Valor acima do empréstimo acima do permitido");
+				
+			}else {
+				System.out.println("Empréstimo de R$" + numero + " realizado com sucesso!");
+				n--;
+			}
+			
 		}
 
 	}
